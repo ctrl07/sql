@@ -26,15 +26,19 @@ VALUES('SUYOG','KURLEKAR',50000),
       ('VIRAT','KARANJKAR',40000),
       ('KRISHNA','KUMAR',NULL);
 
-
+INSERT INTO customer_info (first_name,last_name,salary)VALUES('KRISHNA','KUMAR',50000);
 
 # SQL UPDATE STATEMENT TO REPLACE NULL VALUES
 
 UPDATE customer_info SET salary=50000 WHERE id=5;   
-
+UPDATE customer_info SET email='abc@def.com' WHERE id=1;
+UPDATE customer_info SET email='abc@def.com' WHERE id=2;
+UPDATE customer_info SET email='abc@def.com' WHERE id=3;
+UPDATE customer_info SET email='abc@def.com' WHERE id=4;
+UPDATE customer_info SET email='abc@def.com' WHERE id=36;
 # DELETE STUFF FROM THE TABLE
 
-DELETE FROM customer_info WHERE id=5;
+DELETE FROM customer_info WHERE id BETWEEN 31 AND 35;
       
 SELECT * FROM customer_info;
 
