@@ -1,0 +1,54 @@
+/* SQL CONSTRAINTS
+
+	NOT NULL
+	UNIQUE
+    PRIMARY KEY
+    FOREIGN KEY
+    CHECK
+    DEFAULT
+    INDEX
+*/
+USE customer;
+CREATE TABLE student(
+	id INT NOT NULL,
+	first_name VARCHAR(25) NOT NULL,
+	last_name VARCHAR(25) NOT NULL,
+	age int
+    );
+    DESC student;
+    
+ALTER TABLE student MODIFY age INT NOT NULL;
+
+CREATE TABLE person(
+	id INT NOT NULL,
+	first_name VARCHAR(25) NOT NULL,
+	last_name VARCHAR(25) NOT NULL,
+	age INT NOT NULL,
+	UNIQUE (id)
+);
+
+INSERT INTO person VALUES(1,'SUYOG','KURLEKAR',25);
+SELECT * FROM person;
+
+# Add a UNIQUE CONSTRAINT TO THE TABLE
+	ALTER TABLE person ADD UNIQUE(first_name);
+	DESC person;
+	ALTER TABLE person ADD CONSTRAINT uc_person UNIQUE(age,first_name);
+
+# HOW TO DROP A UNIQUE CONSTRAINT
+	ALTER TABLE person DROP INDEX uc_person;
+
+# PRIMARY KEY
+CREATE TABLE person1(
+	id INT NOT NULL,
+	first_name VARCHAR(25) NOT NULL,
+	last_name VARCHAR(25),
+	age INT,
+CONSTRAINT pk_person PRIMARY KEY (id,last_name)
+);
+
+	DESC person1;
+	ALTER TABLE person1 DROP PRIMARY KEY;
+
+# ADD PRIMARY KEY AGAIN
+	ALTER TABLE person1 ADD PRIMARY KEY(id);
